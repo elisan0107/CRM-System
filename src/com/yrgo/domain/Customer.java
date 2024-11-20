@@ -26,9 +26,12 @@ public class Customer {
 
 	private String notes;
 
-	@OneToMany(cascade=CascadeType.ALL)
-	private List<Call> calls;
+	@OneToMany(cascade=CascadeType.ALL)	// One customer can have many calls.
+	private List<Call> calls; // Here: I guess you store each call (?)
 
+	/*
+		Constructor to create a customer.
+	 */
 	public Customer(String customerId, String companyName, String email,
 			             String telephone, String notes) {
 		this(customerId, companyName, notes);
@@ -36,6 +39,9 @@ public class Customer {
 		this.telephone = telephone;
 	}
 
+	/*
+		What is the diffrence with this constructor?
+	 */
 	public Customer(String customerId, String companyName, String notes){
 		this.customerId = customerId;
 		this.companyName = companyName;
@@ -43,6 +49,7 @@ public class Customer {
 		this.calls = new ArrayList<Call>();
 	}
 
+	// Method to add call to the Call-array "calls"
 	public void addCall(Call callDetails) {
 		this.calls.add(callDetails);
 	}

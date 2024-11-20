@@ -8,16 +8,17 @@ We want to write a system that stores details about all the customers and everyt
 
 
 - [ ] everytime a customer calls the company, we should be able to record the details of the customer's call (TIME:DATE:NAME:ORIGIN, example: 10.30 15 November Jim from HB).
-
+**<p style="color:blue;">How do you record a call?</p>**
+<p style="color:blue;"> Use (Customer): public void addCall(Call callDetails) (?)</p>
 
 - [ ] System must be able to manage a diary for all the users of the system (like email alerts(?))
-
+<p style="color:blue;">Diary means what?</p>
 
 - [ ] Each customer can make many calls
 
 
 - [ ] Each call is owned by a single customer
-
+<p style="color:blue;">How do you connect a call to a customer?</p>
 
 
 **Task 1**
