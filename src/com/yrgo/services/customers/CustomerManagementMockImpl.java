@@ -1,7 +1,9 @@
 package com.yrgo.services.customers;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.yrgo.domain.Call;
 import com.yrgo.domain.Customer;
@@ -31,7 +33,7 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 		if (customerMap.containsKey(customerId)) {
 			return customerMap.get(customerId); // Return the customer if found
 		} else {
-			// Throw exception if the customer is not found
+			// Thrown i exceptiof the customer is not found
 			throw new CustomerNotFoundException();
 		}
 	}
@@ -40,20 +42,41 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 
 	@Override
 	public void updateCustomer(Customer changedCustomer) {
-		// TODO
+		// create method to update a customers. What?
+		// my example might be to: update the companyName or notes of a Customer.
+		// Where do you update it?
+		// You have to enter the Map and then pick out the specific id of the Customer,
+		// then you need to ...
+		// How do you change an already created object?
 	}
 
 	@Override
 	public void deleteCustomer(Customer oldCustomer) {
-		// TODO Auto-generated method stub
-
+		// Use the customer's ID to remove it from the map
+		String customerId = oldCustomer.getCustomerId();
+		customerMap.remove(customerId);
 	}
 
 	@Override
-	public List<Customer> findCustomersByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Customer> findCustomersByName(String searchName) {
+		// Create a list to store customers with matching names
+		List<Customer> matchingCustomers = new ArrayList<>();
+
+		// Loop through all entries in the customerMap
+		for (Map.Entry<String, Customer> entry : customerMap.entrySet()) {
+			// Retrieve the customer's company name
+			String customerName = entry.getValue().getCompanyName();
+
+			// Compare the provided search name with the customer name
+			if (searchName.equals(customerName)) {
+				matchingCustomers.add(entry.getValue()); // Add matching customer to the list
+			}
+		}
+
+		// Return the list of matching customers
+		return matchingCustomers;
 	}
+
 
 	@Override
 	public List<Customer> getAllCustomers() {
