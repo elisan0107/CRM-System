@@ -110,5 +110,4 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 		// Add the call details to the customer's list of calls
 		customer.addCall(callDetails);
 	}
-
 }

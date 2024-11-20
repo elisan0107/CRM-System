@@ -22,7 +22,7 @@ We want to write a system that stores details about all the customers and everyt
 
 
 **Task 1**
-- [ ] Complete and implement all the methods in the mock implementation of interface CustomerManagement with the name: CustomerManagementMockImpl
+- [x] Complete and implement all the methods in the mock implementation of interface CustomerManagement with the name: CustomerManagementMockImpl
 
 
 **Task 2**
