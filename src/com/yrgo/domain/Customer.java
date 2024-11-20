@@ -110,3 +110,4 @@ public class Customer {
 	// needed for JPA - ignore until then
 	public Customer() {}
 }
+

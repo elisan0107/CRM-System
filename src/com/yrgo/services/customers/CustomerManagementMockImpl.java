@@ -19,12 +19,23 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 	// newCustomer (below) - simulates dynamic runtime behavior
 	@Override
 	public void newCustomer(Customer newCustomer) {
-		// Retrieve the customer's ID dynamically from the newCustomer object
-		String customerId = newCustomer.getId();
+		// Retrieve the customer's ID dynamically using the correct method name
+		String customerId = newCustomer.getCustomerId();
 
 		// Store the customer in the map using the ID as the key
 		customerMap.put(customerId, newCustomer);
 	}
+	@Override
+	public Customer findCustomerById(String customerId) throws CustomerNotFoundException {
+		// Check if the customer exists in the map
+		if (customerMap.containsKey(customerId)) {
+			return customerMap.get(customerId); // Return the customer if found
+		} else {
+			// Throw exception if the customer is not found
+			throw new CustomerNotFoundException();
+		}
+	}
+
 
 
 	@Override
@@ -36,12 +47,6 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 	public void deleteCustomer(Customer oldCustomer) {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public Customer findCustomerById(String customerId) throws CustomerNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
