@@ -87,8 +87,14 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 
 	@Override
 	public Customer getFullCustomerDetail(String customerId) throws CustomerNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		// Check if the customer exists in the map
+		if (customerMap.containsKey(customerId)) {
+			// Return the customer details
+			return customerMap.get(customerId);
+		} else {
+			// Throw an exception if the customer is not found
+			throw new CustomerNotFoundException();
+		}
 	}
 
 	@Override
