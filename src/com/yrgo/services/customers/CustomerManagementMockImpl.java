@@ -1,9 +1,6 @@
 package com.yrgo.services.customers;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.yrgo.domain.Call;
 import com.yrgo.domain.Customer;
@@ -41,13 +38,48 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 
 
 	@Override
-	public void updateCustomer(Customer changedCustomer) {
-		// create method to update a customers. What?
-		// my example might be to: update the companyName or notes of a Customer.
-		// Where do you update it?
-		// You have to enter the Map and then pick out the specific id of the Customer,
-		// then you need to ...
-		// How do you change an already created object?
+	public void updateCustomer(Customer customer) {
+		// Loop through the customerMap to find the matching customer by ID
+		for (Map.Entry<String, Customer> entry : customerMap.entrySet()) {
+			if (entry.getKey().equals(customer.getCustomerId())) {
+				// Found the matching customer
+				Customer existingCustomer = entry.getValue();
+				Scanner scanner = new Scanner(System.in);
+
+				try {
+					// Update each field using user input
+					System.out.print("Enter new company name (leave blank to keep current): ");
+					String companyName = scanner.nextLine();
+					if (!companyName.isBlank()) {
+						existingCustomer.setCompanyName(companyName);
+					}
+
+					System.out.print("Enter new email (leave blank to keep current): ");
+					String email = scanner.nextLine();
+					if (!email.isBlank()) {
+						existingCustomer.setEmail(email);
+					}
+
+					System.out.print("Enter new telephone (leave blank to keep current): ");
+					String telephone = scanner.nextLine();
+					if (!telephone.isBlank()) {
+						existingCustomer.setTelephone(telephone);
+					}
+
+					System.out.print("Enter new notes (leave blank to keep current): ");
+					String notes = scanner.nextLine();
+					if (!notes.isBlank()) {
+						existingCustomer.setNotes(notes);
+					}
+
+					System.out.println("Customer updated successfully!");
+				} catch (Exception e) {
+					System.err.println("Error updating customer: " + e.getMessage());
+				}
+
+				break; // Exit the loop once the customer is updated
+			}
+		}
 	}
 
 	@Override
