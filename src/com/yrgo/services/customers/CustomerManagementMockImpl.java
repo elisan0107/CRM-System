@@ -80,9 +80,10 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 
 	@Override
 	public List<Customer> getAllCustomers() {
-		// TODO Auto-generated method stub
-		return null;
+		// Create a new list and add all customers from the map
+		return new ArrayList<>(customerMap.values());
 	}
+
 
 	@Override
 	public Customer getFullCustomerDetail(String customerId) throws CustomerNotFoundException {
