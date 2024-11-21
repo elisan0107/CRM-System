@@ -6,7 +6,7 @@ import com.yrgo.domain.Call;
 import com.yrgo.domain.Customer;
 
 public class CustomerManagementMockImpl implements CustomerManagementService {
-	private HashMap<String,Customer> customerMap; // here you save string(?)-what with a new Customer.
+	private HashMap<String,Customer> customerMap;
 
 	public CustomerManagementMockImpl() { // created Customers inside the constructor is test-data //GPT4
 		customerMap = new HashMap<String,Customer>();
@@ -15,7 +15,6 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 		customerMap.put("RM210", new Customer("RM210" ,"River Ltd", "some more notes"));
 	}
 
-	// newCustomer (below) - simulates dynamic runtime behavior
 	@Override
 	public void newCustomer(Customer newCustomer) {
 		// Retrieve the customer's ID dynamically using the correct method name

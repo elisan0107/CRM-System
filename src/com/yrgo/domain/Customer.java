@@ -8,10 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-/*
-	The customer class represents a single customer and it has all the details
-	such as the company name, the customer’s telephone number, email address and so on.
- */
+
 @Entity
 public class Customer {
 
@@ -26,12 +23,9 @@ public class Customer {
 
 	private String notes;
 
-	@OneToMany(cascade=CascadeType.ALL)	// One customer can have many calls.
-	private List<Call> calls; // Here: I guess you store each call (?)
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<Call> calls;
 
-	/*
-		Constructor to create a customer.
-	 */
 	public Customer(String customerId, String companyName, String email,
 			             String telephone, String notes) {
 		this(customerId, companyName, notes);
@@ -39,9 +33,6 @@ public class Customer {
 		this.telephone = telephone;
 	}
 
-	/*
-		What is the diffrence with this constructor?
-	 */
 	public Customer(String customerId, String companyName, String notes){
 		this.customerId = customerId;
 		this.companyName = companyName;
@@ -49,7 +40,7 @@ public class Customer {
 		this.calls = new ArrayList<Call>();
 	}
 
-	// Method to add call to the Call-array "calls"
+
 	public void addCall(Call callDetails) {
 		this.calls.add(callDetails);
 	}
