@@ -26,13 +26,13 @@ We want to write a system that stores details about all the customers and everyt
 
 
 **Task 2**
-- [ ] Configure the mock implementation of the interface in the applicaton.xml file using <beans> tag (You have a file application.xml in the src which is empty. If you make a maven project, move this file to resources under the main folder)
+- [x] Configure the mock implementation of the interface in the applicaton.xml file using <beans> tag (You have a file application.xml in the src which is empty. If you make a maven project, move this file to resources under the main folder)
 
 
 **Task 3**
-- [ ] Write a class called SimpleClient in the client package that gets the service beans and tests their functionality
-    - [ ] First create a container type  ClassPathXmlApplicationContext which accepts application.xml as an argument
-    - [ ] Then create an object type CustomerManagementService with the help of the container (xml file)
-    - [ ] Make a list of the customers and print them all.
+- [x] Write a class called SimpleClient in the client package that gets the service beans and tests their functionality
+    - [x] First create a container type  ClassPathXmlApplicationContext which accepts application.xml as an argument
+    - [x] Then create an object type CustomerManagementService with the help of the container (xml file)
+    - [x] Make a list of the customers and print them all.
 
 
